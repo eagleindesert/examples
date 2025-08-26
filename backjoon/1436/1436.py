@@ -1,3 +1,5 @@
+import sys
+
 # 리스트 입력 후 리스트 출력
 def add_1(lst: list):
 
@@ -29,7 +31,7 @@ def add_1(lst: list):
 
 ######################################################
 
-n = int(input())
+n = int(sys.stdin.readline().rstrip())
 
 # sNum은 불변, cNum은 가변
 sNum = ["6", "6", "6"]
