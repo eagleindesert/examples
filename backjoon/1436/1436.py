@@ -61,9 +61,11 @@ while i < n:
                 sNum = tNum1
                 cNum = tNum2
                 mode = 1
+                i -= 1  # c+s -> s+c 부분 if문에서 중복되는 값 발생하여 i값 1 감소
                 break
 
     # s+c에서 c+s로 바뀌는 부분
+    # len(cNum)과 cLenBefore의 자릿수가 달라지면 모드 스위치
     elif mode == 1 and (len(cNum) != cLenBefore):
         tNum1 = []
         tNum2 = ["6", "6", "6"]
@@ -84,4 +86,6 @@ while i < n:
     cNum = add_1(cNum)
     i += 1
 
-    print(num)
+    if(i == n):
+        print(''.join(num))
+    #print(num)
