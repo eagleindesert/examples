@@ -7,4 +7,5 @@ for i in range(n):
 
 people.sort(key=lambda x: x[0])
 
-print(people) 
+for i in people:
+    print(i[0], i[1]) 
