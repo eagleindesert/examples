@@ -1,8 +1,2 @@
-text = "  hello world  \n"
-
-print(text.split())        # ['hello', 'world']
-print(len(text.split()))
-print(text.strip())        # "hello world"
-print(len(text.strip()))  
-print(text.rstrip())       # "  hello world"
-print(len(text.rstrip()))
+list_a = [273, 32, 100, 'korea', 50, [10, True, 30]]
+print(list_a[5][:1])
