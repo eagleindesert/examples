@@ -1,8 +1,7 @@
 import sys
 
-n, m = map(int, sys.stdin.readline().split())
-k = 3  # 선택할 개수 (일반화)
-decks = list(map(int, sys.stdin.readline().split()))
+n = int(sys.stdin.readline())
+k = int(sys.stdin.readline()) # 선택할 개수 (일반화)
 
 pnt = list(range(k))  # [0, 1, 2, ...]
 
