@@ -7,10 +7,10 @@ sum = 0
 max = max(scores)
 
 for s in scores:
-    new = s/max*100
+    new = s / max * 100
     new_scores.append(new)
 
 for ns in new_scores:
     sum += ns
 
-print(sum/n)
+print(sum / n)
