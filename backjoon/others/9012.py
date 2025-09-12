@@ -24,14 +24,38 @@ class Stack:
         return True if len(self.stack) == 0 else False
         # return not self.stack
 
-def insertToStack():
-    
+
+def decideValid(inputStr: str) -> bool:
+    stack = Stack()
+    valid = True
+
+    for i in range(len(inputStr)):
+        if inputStr[i] == "(":
+            stack.push(inputStr[i])
+        elif inputStr[i] == ")":
+            if not stack.isEmpty():
+                stack.pop()
+            elif stack.isEmpty():
+                valid = False
+
+    if not stack.isEmpty():
+        valid = False
+
+    return valid
+
 
 def main():
-    stack = Stack()
-    
+    N = int(sys.stdin.readline())
+    inputStrList = []
 
-    while True:
+    for i in range(N):
+        inputStrList.append((sys.stdin.readline().split())[0])
+
+    for i in range(N):
+        if decideValid(inputStrList[i]):
+            print("YES")
+        else:
+            print("NO")
 
 
 main()
