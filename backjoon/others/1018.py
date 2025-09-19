@@ -23,50 +23,60 @@ def main():
             stColor = inputBoard[p1_y][p1_x]
 
             # 몇 번 칠했는지
-            paint_cnt = 0
+            B_paint_cnt = 0
+            W_paint_cnt = 0
 
-            if stColor == "B":
-                for i in range(p1_y, p2_y + 1):
-                    if i - p1_y % 2 == 0:
-                        for j in range(p1_x, p2_x + 1):
-                            if j - p1_x % 2 == 0:
-                                if inputBoard[i][j] == "W":
-                                    paint_cnt += 1
-                            elif j - p1_x % 2 == 1:
-                                if inputBoard[i][j] == "B":
-                                    paint_cnt += 1
-                    elif i - p1_y % 2 == 1:
-                        for j in range(p1_x, p2_x + 1):
-                            if j - p1_x % 2 == 0:
-                                if inputBoard[i][j] == "B":
-                                    paint_cnt += 1
-                            elif j - p1_x % 2 == 1:
-                                if inputBoard[i][j] == "W":
-                                    paint_cnt += 1
+            # B로 시작한다고 가정
+            for i in range(p1_y, p2_y + 1):
+                if (i - p1_y) % 2 == 0:
+                    for j in range(p1_x, p2_x + 1):
+                        if (j - p1_x) % 2 == 0:
+                            if inputBoard[i][j] == "W":
+                                B_paint_cnt += 1
+                        elif (j - p1_x) % 2 == 1:
+                            if inputBoard[i][j] == "B":
+                                B_paint_cnt += 1
+                elif (i - p1_y) % 2 == 1:
+                    for j in range(p1_x, p2_x + 1):
+                        if (j - p1_x) % 2 == 0:
+                            if inputBoard[i][j] == "B":
+                                B_paint_cnt += 1
+                        elif (j - p1_x) % 2 == 1:
+                            if inputBoard[i][j] == "W":
+                                B_paint_cnt += 1
 
-            elif stColor == "W":
-                for i in range(p1_y, p2_y + 1):
-                    if i - p1_y % 2 == 0:
-                        for j in range(p1_x, p2_x + 1):
-                            if j - p1_x % 2 == 0:
-                                if inputBoard[i][j] == "B":
-                                    paint_cnt += 1
-                            elif j - p1_x % 2 == 1:
-                                if inputBoard[i][j] == "W":
-                                    paint_cnt += 1
-                    elif i - p1_y % 2 == 1:
-                        for j in range(p1_x, p2_x + 1):
-                            if j - p1_x % 2 == 0:
-                                if inputBoard[i][j] == "W":
-                                    paint_cnt += 1
-                            elif j - p1_x % 2 == 1:
-                                if inputBoard[i][j] == "B":
-                                    paint_cnt += 1
+            # W로 시작한다고 가정
+            for i in range(p1_y, p2_y + 1):
+                if (i - p1_y) % 2 == 0:
+                    for j in range(p1_x, p2_x + 1):
+                        if (j - p1_x) % 2 == 0:
+                            if inputBoard[i][j] == "B":
+                                W_paint_cnt += 1
+                        elif (j - p1_x) % 2 == 1:
+                            if inputBoard[i][j] == "W":
+                                W_paint_cnt += 1
+                elif (i - p1_y) % 2 == 1:
+                    for j in range(p1_x, p2_x + 1):
+                        if (j - p1_x) % 2 == 0:
+                            if inputBoard[i][j] == "W":
+                                W_paint_cnt += 1
+                        elif (j - p1_x) % 2 == 1:
+                            if inputBoard[i][j] == "B":
+                                W_paint_cnt += 1
 
-            if min_paint_cnt > paint_cnt:
-                min_paint_cnt = paint_cnt
+            tmp_paint_cnt = B_paint_cnt if B_paint_cnt < W_paint_cnt else W_paint_cnt
 
-            paint_cnt = 0
+            # 디버깅
+            # print(stColor)
+            # print(p1_x, p1_y)
+            # print(p2_x, p2_y)
+            #print(tmp_paint_cnt)
+
+            if min_paint_cnt > tmp_paint_cnt:
+                min_paint_cnt = tmp_paint_cnt
+
+            B_paint_cnt = 0
+            W_paint_cnt = 0
 
     print(min_paint_cnt)
 
