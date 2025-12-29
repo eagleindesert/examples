@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 
 
 def main():
@@ -32,33 +33,41 @@ def main():
     for i in range(1, N + 1):
         print(f"노드 {i}: {graph[i]}")"""
 
-    print(bfs(graph))
+    print(len(bfs(graph))-1)
     # print(graph)
 
 
 def bfs(graph):
     # 방문 예정 큐
-    pending_nodes = []
-    
+    pending_nodes = deque()
+
     # 방문한 노드들
     visited = set()
+    local_visited = set()
 
-    # 분할된 그래프
-    separated_graph = []
+    # 분리된 그래프들
+    seperated_graph = []
 
-    # 방문
-    for node, edges in enumerate(graph):
-        if node in visited:
+    for idx, _ in enumerate(graph):
+        if idx in visited:
             continue
 
-        separated_graph.append([])
+        pending_nodes.append(idx)
 
-        for edge in edges:
-            pending_nodes.append(edge)
+        while pending_nodes:
+            pnt = pending_nodes.pop()
 
-        visited.add(node)
+            visited.add(pnt)
+            local_visited.add(pnt)
 
-    return visited
+            for node in graph[pnt]:
+                if node not in local_visited:
+                    pending_nodes.append(node)
+    
+        seperated_graph.append(local_visited.copy())
+        local_visited.clear()
+
+    return seperated_graph
 
 
 main()
