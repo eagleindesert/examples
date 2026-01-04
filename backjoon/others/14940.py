@@ -21,7 +21,8 @@ def main():
                 start_pos.append(i)
                 start_pos.append(j)
 
-    graph_visited[0][0] = 1
+    graph_distance[start_pos[0]][start_pos[1]] = 0
+    graph_visited[start_pos[0]][start_pos[1]] = 1
     pending = deque([start_pos])
 
     while pending:
@@ -50,6 +51,13 @@ def main():
                 pending.append(pos)
 
         # print(cur)
+
+    # 방문하지 못했던 땅 -1 처리
+    for i, line in enumerate(graph_visited):
+        for j, _ in enumerate(line):
+            if graph_visited[i][j] == 0:
+                if graph_value[i][j] != 0:
+                    graph_distance[i][j] = -1
 
     for line in graph_distance:
         print(*line)
