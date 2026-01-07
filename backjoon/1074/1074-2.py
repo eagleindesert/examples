@@ -13,13 +13,9 @@ def main():
     high = length - 1
     mid = (low + high) // 2
 
-    low_r = low
-    high_r = high
-    mid_r = mid
-
-    low_c = low
-    high_c = high
-    mid_c = mid
+    low_r, low_c = low, low
+    high_r, high_c = high, high
+    mid_r, mid_c = mid, mid
 
     cur = N
 
