@@ -63,10 +63,8 @@ def main():
     result_sum = multi_num[1]
     for i in range(2, N + 1):
         result_sum += (4 ** (i - 1)) * multi_num[i]
-        # print(result_sum)
 
     print(result_sum)
-    # print(multi_num)
 
 
 main()
