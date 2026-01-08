@@ -1,2 +1,7 @@
-a, b = 100, 200
-print(a==b)
+a = 3
+b = None
+
+if a:
+    print(a)
+if b:
+    print("none 무시")
