@@ -1,7 +1,10 @@
-a = 3
-b = None
+def main():
+    example = set()
 
-if a:
-    print(a)
-if b:
-    print("none 무시")
+    example.add((2, 4))
+    example.add((6, 7))
+
+    print(example)
+
+
+main()
