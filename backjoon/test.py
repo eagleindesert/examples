@@ -1,16 +1,5 @@
-from collections import deque
-
-
 def main():
-    pending = []
-    pending.append(deque([[3, 4]]))
-    pending.append(deque())
+    for i in range(0, 4, 1):
+        print(i)
 
-    if pending[0]:
-        print("O")
-
-    if pending[1]:
-        print("!")
-
-
-main()
+main()  
