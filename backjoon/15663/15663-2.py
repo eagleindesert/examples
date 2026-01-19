@@ -8,7 +8,6 @@ def main():
     input_list = sorted(map(int, input().split()))
     branch_list = input_list.copy()
     visited = [False] * N
-    selected = []
 
     def dfs(selected):
         if len(selected) == M:
@@ -21,17 +20,17 @@ def main():
             if visited[idx] == False and value != prev:
 
                 visited[idx] = True
-                selected.append(value)
+                # selected.append(value)
                 # print(f"방문 = {node}")
 
-                dfs(selected)
+                dfs(selected + [value])
 
                 visited[idx] = False
-                selected.pop()
+                # selected.pop()
 
                 prev = value
 
-    dfs(selected)
+    dfs([])
 
 
 main()
