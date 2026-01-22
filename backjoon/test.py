@@ -1,8 +1,6 @@
 def main():
-    lst = [3,4,4,5]
-    
-    lst.remove(4)
-
+    lst = [1,2,3,5]
+    lst = lst - [1]
     print(lst)
 
 main()  
