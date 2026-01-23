@@ -13,7 +13,6 @@ def main():
     for i in range(N):
         init_arr.append(list(map(int, input().split())))
 
-
     for i in range(M):
         target_arr.append([x - 1 for x in map(int, input().split())])
 
