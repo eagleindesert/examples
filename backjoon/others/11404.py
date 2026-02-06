@@ -2,7 +2,7 @@ import sys
 import copy
 
 input = sys.stdin.readline
-INF = 100001
+INF = 100000000
 
 # 버스가 한곳에서 한곳으로 이동하므로 방향 그래프!
 
